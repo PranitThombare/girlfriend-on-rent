@@ -8,7 +8,7 @@ function Footer(){
       background: "#eee",
       textAlign: "center"
     }}>
-      <p>© 2026 GirlfriendOnRent | <a href="/privacy">Privacy Policy</a> | <a href="/terms">Terms</a></p>
+      <p>© 2025 GirlfriendOnRent | <a href="/privacy">Privacy Policy</a> | <a href="/terms">Terms</a></p>
     </div>
     );
 }
