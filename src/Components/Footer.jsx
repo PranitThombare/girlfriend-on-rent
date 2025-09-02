@@ -2,7 +2,7 @@ import React from "react";
 
 function Footer(){
     return(
-         <div style={{
+        <div style={{
       marginTop: "20px",
       padding: "15px",
       background: "#eee",
