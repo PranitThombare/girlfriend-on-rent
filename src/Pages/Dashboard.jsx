@@ -17,7 +17,7 @@ function Dashboard() {
       try {
         const res = await axios.get("http://localhost:8080/api/girls");
         setGirls(res.data);
-        console.log(res.data);
+        // console.log(res.data);
       } catch (err) {
         alert("error is : ", err);
       }
