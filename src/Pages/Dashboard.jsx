@@ -17,7 +17,7 @@ function Dashboard() {
       try {
         const res = await axios.get("http://localhost:8080/api/girls");
         setGirls(res.data);
-        // console.log(res.data);
+        console.log(res.data);
       } catch (err) {
         alert("error is : ", err);
       }
@@ -25,15 +25,15 @@ function Dashboard() {
     fetchGirls();
   }, []);
 
-  const handleBook = (girl) => {
-    alert( `you booked ${girl.name} for Rs.${girl.price} `);
-  };
+  // const handleBook = (girl) => {
+  //   alert( `you booked ${girl.name} for Rs.${girl.price} `);
+  // };
 
   return (
     <div>
       <Navbar user = { user } />
       {/* <Sidebar /> */}
-      <ProfileCards girls = { girls } onBook={handleBook} />
+      <ProfileCards girls = { girls }  />
       <Footer />
     </div>
   );
