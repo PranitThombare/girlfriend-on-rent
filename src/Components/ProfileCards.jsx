@@ -19,8 +19,8 @@ function ProfileCards({ girls }) {
     setShowModal(true);
   };
 
-  // Confirm booking
-  const handleConfirmBooking = () => {
+  // Confirm booking (POST to backend)
+  const handleConfirmBooking = async () => {
     if (!user) {
       alert("No user found in localStorage!");
       return;
@@ -28,18 +28,36 @@ function ProfileCards({ girls }) {
 
     const booking = {
       girlId: selectedGirl.id,
-      girlName: selectedGirl.name,
       userId: user.id,
-      userName: user.name,
-      userEmail: user.email,
-      totalAmount: selectedGirl.pricePerHour, // if fixed 1 hr (or extend with hours later)
+      duration: 1, // fixed 1 hour for now
+      totalAmount: selectedGirl.pricePerHour,
     };
 
-    console.log("✅ Booking Confirmed:", booking);
+    try {
+      const response = await fetch("http://localhost:8080/api/bookings", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(booking),
+      });
 
-    // Close modal
-    setShowModal(false);
-    setSelectedGirl(null);
+      if (!response.ok) {
+        throw new Error("Failed to confirm booking");
+      }
+
+      const savedBooking = await response.json();
+      console.log("✅ Booking Confirmed:", savedBooking);
+
+    //   alert("Booking confirmed successfully!");
+
+      // Close modal
+      setShowModal(false);
+      setSelectedGirl(null);
+    } catch (error) {
+      console.error("❌ Error confirming booking:", error);
+      alert("Something went wrong while booking!");
+    }
   };
 
   return (
@@ -85,8 +103,12 @@ function ProfileCards({ girls }) {
             </p>
 
             <div className="mt-4 p-3 bg-gray-100 rounded-lg">
-              <p className="text-gray-700"><strong>User:</strong> {user.name}</p>
-              <p className="text-gray-700"><strong>Email:</strong> {user.email}</p>
+              <p className="text-gray-700">
+                <strong>User:</strong> {user.name}
+              </p>
+              <p className="text-gray-700">
+                <strong>Email:</strong> {user.email}
+              </p>
             </div>
 
             <div className="flex justify-between mt-6">
