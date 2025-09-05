@@ -5,10 +5,12 @@ import Navbar from "../Components/Navbar";
 import ProfileCards from "../Components/ProfileCards";
 import Footer from "../Components/Footer";
 import Sidebar from "../Components/Sidebar";
+import BookingHistory from "../Components/BookingHistory";
 
 function Dashboard() {
   const user = JSON.parse(localStorage.getItem("user"));
   const [girls, setGirls] = useState([]);
+  const [showHistory, setShowHistory] = useState(false);
 
 
   // fetch girls from backend
@@ -30,10 +32,24 @@ function Dashboard() {
   // };
 
   return (
-    <div>
-      <Navbar user = { user } />
-      {/* <Sidebar /> */}
-      <ProfileCards girls = { girls }  />
+        <div>
+      <Navbar user={user} />
+
+      {/* Toggle Button */}
+      <div className="flex justify-end px-6 mt-4">
+        <button
+          onClick={() => setShowHistory(!showHistory)}
+          className="bg-purple-600 text-white px-4 py-2 rounded-lg shadow hover:bg-purple-700 transition"
+        >
+          {showHistory ? "Dashboard" : "History"}
+        </button>
+      </div>
+
+      {/* Conditional Rendering */}
+      <div className="px-6 mt-6">
+        {showHistory ? <BookingHistory /> : <ProfileCards girls={girls} />}
+      </div>
+
       <Footer />
     </div>
   );

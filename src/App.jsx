@@ -5,6 +5,7 @@ import Signup from "./Components/Signup";
 import Home from "./Pages/Home";
 import PrivateRoute from "./Components/PrivateRoute";
 import Dashboard from "./Pages/Dashboard";
+// import BookingHistory from "./Components/BookingHistory";
 
 function App() {
 
@@ -16,6 +17,8 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         {/* <Route path="/dashboard" element={<Dashboard/>}/> */}
+        {/* <Route path="/history" element={<BookingHistory />} /> */}
+
 
         {/* ✅ protected route */}
         <Route
