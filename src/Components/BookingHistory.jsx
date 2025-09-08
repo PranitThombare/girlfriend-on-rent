@@ -78,6 +78,7 @@ const BookingHistory = ({ user }) => {
         .then((res) => {
           console.log("Booking API response:", res.data);
           setBookings(res.data);
+          console.log(bookings)
           setIsLoading(false);
         })
         .catch((err) => {
@@ -108,9 +109,7 @@ const BookingHistory = ({ user }) => {
               {/* 🔹 Since your API doesn’t provide girl.images, we use placeholder */}
               <img
                 src={
-                  booking.girl.imageUrl
-                    ? `http://localhost:8080/images/${booking.girl.imageUrl}`
-                    : "https://placehold.co/150x150/f9d5b5/6d28d9?text=Photo"
+                  `http://localhost:8080/images/${booking.girl.images[0].imageUrl}`
                 }
                 alt={booking.girl.name}
                 className="w-28 h-28 object-cover rounded-lg"
