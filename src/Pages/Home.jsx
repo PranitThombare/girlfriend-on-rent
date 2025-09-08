@@ -298,9 +298,13 @@ export default function Home() {
             </div>
             <div>
               <h4 className="font-semibold mb-4 text-gray-200">Company</h4>
-              <a href="#" className="block text-gray-400 hover:text-white transition py-1 text-sm">About Us</a>
-              <a href="#" className="block text-gray-400 hover:text-white transition py-1 text-sm">Careers</a>
-              <a href="#" className="block text-gray-400 hover:text-white transition py-1 text-sm">Press</a>
+              {/* <a href="#" className="block text-gray-400 hover:text-white transition py-1 text-sm">About Us</a>
+               */}
+               <Link to="/Aboutus" className="block text-gray-400 hover:text-white transition py-1 text-sm" >
+                  About Us
+                </Link>
+              <Link to="/Careers" className="block text-gray-400 hover:text-white transition py-1 text-sm">Careers</Link>
+              <Link href="/Press" className="block text-gray-400 hover:text-white transition py-1 text-sm">Press</Link>
             </div>
             <div>
               <h4 className="font-semibold mb-4 text-gray-200">Support</h4>
