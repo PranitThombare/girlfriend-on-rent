@@ -5,7 +5,7 @@ import Signup from "./Components/Signup";
 import Home from "./Pages/Home";
 import PrivateRoute from "./Components/PrivateRoute";
 import Dashboard from "./Pages/Dashboard";
-import Aboutus from "./Pages/AboutUs";
+import AboutUs from "./Pages/AboutUs";
 import Careers from "./Pages/Careers";
 import Press from "./Pages/Press";
 // import BookingHistory from "./Components/BookingHistory";
@@ -21,9 +21,9 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         {/* <Route path="/dashboard" element={<Dashboard/>}/> */}
         {/* <Route path="/history" element={<BookingHistory />} /> */}
-        <Route path="/Aboutus" element={<Aboutus />} />
+        <Route path="/Aboutus" element={<AboutUs />} />
         <Route path="/Careers" element={<Careers />} />
-        <Rout path="/Press" element={<Press />} />
+        <Route path="/Press" element={<Press />} />
 
 
         {/* ✅ protected route */}
